@@ -50,5 +50,5 @@ Add the Telegram bot to a chat and start sending messages.
 ## Note
 
 1. Make sure you have the required API keys and tokens for Telegram and Notion.
-2. The Baidu Speech API is optional and requires additional configuration.
+2. The Baidu Speech API is optional and requires additional configuration, and install ffmpeg.
 
