@@ -88,7 +88,7 @@ def get_page_content(page_id: str) -> Dict[str, Any]:
 
 
 def append_page(block_id: str, text: str, file_type: str, file_url: str, link_list: List[tuple]) -> None:
-    new_block = [
+    new_block = [{"object": "block","type": "paragraph", "paragraph":{"rich_text": [{"type": "text","text":{"content":""}}]}},
         {
             "object": "block",
             "type": "bulleted_list_item",

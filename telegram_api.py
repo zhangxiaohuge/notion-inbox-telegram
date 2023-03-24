@@ -57,5 +57,4 @@ def process_telegram_message(message):
             text = speech_to_text(file_url)
         insert(text, file_type, file_url, link_list)
     else:
-        text = text + "\n"
         insert(text, link_list=link_list)
