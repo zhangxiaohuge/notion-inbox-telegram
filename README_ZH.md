@@ -57,3 +57,7 @@ python3 main.py
 
 1. 确保您拥有 Telegram 和 Notion 所需的 API 密钥和令牌。
 2. 百度语音 API 是可选的，需要额外配置，并且安装ffmpeg。
+
+## 效果图
+
+![demo](https://github.com/cooolr/notion-inbox-telegram-plugin/raw/main/demo.png)
