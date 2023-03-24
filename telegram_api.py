@@ -1,19 +1,18 @@
 import os
-import requests
-from typing import List, Tuple
 from uuid import uuid1
-
-from config import TELEGRAM_TOKEN, SPEECH_TO_TEXT
+import requests
+from flask import Flask
+from flask import request
 from notion_api import insert
 from speech import speech
+from config import TELEGRAM_TOKEN, SPEECH_TO_TEXT
 
-
-def get_file_path(file_id: str) -> str:
+def get_file_path(file_id):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getFile?file_id={file_id}"
     r = requests.get(url)
     return r.json()["result"]["file_path"]
 
-def get_file_url(file_path: str) -> str:
+def get_file_url(file_path):
     url = f"https://api.telegram.org/file/bot{TELEGRAM_TOKEN}/{file_path}"
     return url
 
@@ -29,16 +28,14 @@ def speech_to_text(file_url):
     os.remove(filename2)
     return text
 
-def process_telegram_message(message: dict) -> None:
-    """Process a Telegram message and insert it into the Notion database."""
+def process_telegram_message(message):
+    print(message)
     text = message.get("text", "") or message.get("caption", "")
     link_list = []
-
     if message.get("entities"):
         for item in message["entities"]:
             if item.get("url"):
-                link_list.append((item['offset'], item['length'], text[item['offset']:item['offset'] + item['length']], item['url']))
-
+                link_list.append((item['offset'],item['offset']+item['length'],text[item['offset']:item['offset']+item['length']],item['url']))
     if message.get("document"):
         file_type = message["document"]["mime_type"]
         file_id = message["document"]["file_id"]

@@ -1,6 +1,6 @@
 import requests
 import time
-from typing import Dict, Any
+from typing import Dict, Any, List
 from config import TELEGRAM_TOKEN
 from telegram_api import process_telegram_message
 
