@@ -64,6 +64,3 @@ def process_telegram_message(message: dict) -> None:
     else:
         text = text + "\n"
         insert(text, link_list=link_list)
-
-if __name__ == "__main__":
-    app.run()
