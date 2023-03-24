@@ -1,8 +1,6 @@
 import os
 from uuid import uuid1
 import requests
-from flask import Flask
-from flask import request
 from notion_api import insert
 from speech import speech
 from config import TELEGRAM_TOKEN, SPEECH_TO_TEXT
