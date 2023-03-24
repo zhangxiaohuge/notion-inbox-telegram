@@ -30,8 +30,8 @@ def process_telegram_message(message):
     print(message)
     text = message.get("text", "") or message.get("caption", "")
     link_list = []
-    if message.get("entities"):
-        for item in message["entities"]:
+    if message.get("entities") or message.get("caption_entities"):
+        for item in message.get("entities") or message.get("caption_entities"):
             if item.get("url"):
                 link_list.append((item['offset'],item['offset']+item['length'],text[item['offset']:item['offset']+item['length']],item['url']))
     if message.get("document"):
