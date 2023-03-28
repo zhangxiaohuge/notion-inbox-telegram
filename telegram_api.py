@@ -5,6 +5,8 @@ from notion_api import insert
 from speech import speech
 from config import TELEGRAM_TOKEN, SPEECH_TO_TEXT
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 def get_file_path(file_id):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getFile?file_id={file_id}"
     r = requests.get(url)
@@ -21,7 +23,14 @@ def speech_to_text(file_url):
     with open(filename1, "wb") as f:
         f.write(r.content)
     os.system(f"ffmpeg -i {filename1} -ar 16000 {filename2}")
-    text = speech(filename2)
+    # 拆分超过50秒的视频，以适应短语音接口
+    os.system(f"ffmpeg -i {filename2} -f segment -segment_time 50 -c copy {filename2}_%03d.wav")
+    file_list = [i for i in os.listdir("./")if f"{filename2}_" in i]
+    file_list.sort()
+    text = ""
+    for filename in file_list:
+        text += " " + speech(filename)
+        os.remove(filename)
     os.remove(filename1)
     os.remove(filename2)
     return text
