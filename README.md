@@ -8,8 +8,9 @@ This is simple plugin that get new messages from Telegram bot and paste its to p
 1. Create an [integration](https://www.notion.com/my-integrations) and find the token.
 2. Locate your Notion database and copy its database_id.
 3. Add connections from your notion database.
-4. Create a telegram bot and get token.
-4. Configure the settings in `config.py`.
+4. To set your Notion database page template, must add a Multi-select type property named Tags, which corresponds to the NOTION_TAG_NAME parameter in config.py.
+5. Create a telegram bot and get token.
+6. Configure the settings in `config.py`.
 
 ``` python
 # Telegram configuration
