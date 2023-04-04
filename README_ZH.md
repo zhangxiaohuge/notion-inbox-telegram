@@ -8,8 +8,9 @@
 1. 创建一个 [集成](https://www.notion.com/my-integrations) 并找到 token。
 2. 定位到您的 Notion 数据库并复制其 database_id。
 3. 从您的Notion数据库添加连接绑定到第一步创建的integration名字。
-4. 创建一个Telegram bot并获取token。
-5. 在 `config.py` 中配置设置。
+4. 设置您的Notion数据库页面模板，必须添加一个Multi-select类型的property命名为Tags，和config.py NOTION_TAG_NAME参数对应。
+5. 创建一个Telegram bot并获取token。
+6. 在 `config.py` 中配置设置。
 
 ``` python
 # Telegram configuration
