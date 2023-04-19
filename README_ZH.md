@@ -1,5 +1,5 @@
-# notion-inbox-telegram-plugin
-这是一个简单的插件，可以从 Telegram bot 获取新的消息并将其同步到Notion页面块。
+# notion-inbox-telegram
+这是一个简单的程序，可以从 Telegram bot 获取新的消息并将其同步到Notion页面块。
 
 [中文](https://github.com/cooolr/notion-inbox-telegram-plugin/blob/main/README_ZH.md) | [English](https://github.com/cooolr/notion-inbox-telegram-plugin/blob/main/README.md)
 
@@ -31,17 +31,38 @@
 
 注意: 自定义标签属性和名字、语音转文字等可选参数，请阅读 `config.py` 自行配置。
 
-## 安装依赖
+## Docker部署
 
-``` bash
-pip install -r requirements.txt
-```
+1. 安装Docker
 
-## 快速开始
+    - ubuntu: `sudo apt install docker`
+    - centos: `sudo yum install docker-ce`
 
-``` bash
-python3 main.py
-```
+2. 运行程序
+
+    ``` bash
+    docker run -d \
+               --name notion-inbox-telegram \
+               -e TELEGRAM_TOKEN="" \
+               -e NOTION_AUTH="" \
+               -e NOTION_DATABASE_ID="" \
+               -e TIMEZONE="Asia/Shanghai" \
+    cooolr/notion-inbox-telegram:latest
+    ```
+
+## 常规部署
+
+1. 安装依赖
+
+    ``` bash
+    pip install -r requirements.txt
+    ```
+
+2. 快速开始
+
+    ``` bash
+    python3 main.py
+    ```
 
 将 Telegram 机器人添加到聊天中，然后开始发送消息。
 
