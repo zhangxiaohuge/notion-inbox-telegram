@@ -9,7 +9,7 @@ NOTION_DATABASE_ID = "xxxxxxxxxxxxxxxxxxxxxxxxx"
 # 标签名称
 NOTION_TAG_NAME = "Tags"
 # 标签属性
-NOTION_TAG_VALUE = "日志"
+NOTION_TAG_VALUE = "Daily"
 
 # Speech configuration
 # 使用百度短语音普通话转文字标准版api，按调用量后付费0.0034元/次，https://cloud.baidu.com/product/speech/asr
