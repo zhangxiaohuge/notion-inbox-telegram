@@ -7,10 +7,13 @@ TELEGRAM_TOKEN = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # Notion configuration
 # create an [integration](https://www.notion.com/my-integrations) and find the token.
 NOTION_AUTH = "secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
 # https://www.notion.so/<username>/<database_id>?v=<view_id>
 NOTION_DATABASE_ID = "xxxxxxxxxxxxxxxxxxxxxxxxx"
+
 # 标签名称
 NOTION_TAG_NAME = "Tags"
+
 # 标签属性
 NOTION_TAG_VALUE = "Daily"
 
