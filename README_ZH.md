@@ -29,6 +29,8 @@
   
        `NOTION_DATABASE_ID = "xxxxxxxxxxxxxxxxxxxxxxxxx"`
 
+注意: 自定义标签属性和名字、语音转文字等可选参数，请阅读 `config.py` 自行配置。
+
 ## 安装依赖
 
 ``` bash
