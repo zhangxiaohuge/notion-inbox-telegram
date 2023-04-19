@@ -1,5 +1,6 @@
 import os
 import time
+import pytz
 import requests
 from notion_client import Client
 import datetime
@@ -174,9 +175,15 @@ def update_block(existing_page: Dict[str, Any], text: str, file_type: str, file_
 def insert(text: str, file_type: str = "", file_url: str = "", link_list: List[tuple]=[]) -> None:
     tag_name = NOTION_TAG_NAME
     tag_value = NOTION_TAG_VALUE
-    text = f"{time.ctime()[11:16]} - {text}" if text else time.ctime()[11:16]
-    current_date = datetime.datetime.now().strftime("%Y-%m-%d")
-    weekday = WEEKDAYS_DICT[datetime.datetime.now().strftime("%A")]
+    if os.environ.get("TIMEZONE"):
+        tz = pytz.timezone(os.environ["TIMEZONE"])
+        now = datetime.datetime.now(tz)
+    else:
+        now = datetime.datetime.now()
+    ctime = now.strftime("%H:%M")
+    text = f"{ctime} - {text}" if text else ctime
+    current_date = now.strftime("%Y-%m-%d")
+    weekday = WEEKDAYS_DICT[now.strftime("%A")]
     page_title = f"{current_date} {weekday}"
     existing_page = get_page(page_title)
     if not existing_page["results"]:

@@ -3,13 +3,13 @@ from uuid import uuid1
 import requests
 from notion_api import insert
 from speech import speech
-from config import TELEGRAM_TOKEN, SPEECH_TO_TEXT
+from config import TELEGRAM_TOKEN, SPEECH_TO_TEXT, proxies
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def get_file_path(file_id):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/getFile?file_id={file_id}"
-    r = requests.get(url)
+    r = requests.get(url, proxies=proxies)
     return r.json()["result"]["file_path"]
 
 def get_file_url(file_path):
@@ -17,7 +17,7 @@ def get_file_url(file_path):
     return url
 
 def speech_to_text(file_url):
-    r = requests.get(file_url)
+    r = requests.get(file_url, proxies=proxies)
     filename1 = str(uuid1()) + ".oga"
     filename2 = str(uuid1()) + ".wav"
     with open(filename1, "wb") as f:

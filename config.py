@@ -24,6 +24,9 @@ SPEECH_TO_TEXT = False
 SPEECH_API_KEY = "xxxxxxxxxxxxxxxxxxxxxxx"
 SPEECH_SECRET_KEY = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
+# 代理
+PROXY_URL = ""
+
 # 从环境变量获取
 env = os.environ
 if env.get("TELEGRAM_TOKEN"):
@@ -42,3 +45,7 @@ if env.get("SPEECH_API_KEY"):
     SPEECH_API_KEY = env.get("SPEECH_API_KEY")
 if env.get("SPEECH_SECRET_KEY"):
     SPEECH_SECRET_KEY = env.get("SPEECH_SECRET_KEY")
+if env.get("PROXY_URL"):
+    PROXY_URL = env.get("PROXY_URL")
+
+proxies = {"http": PROXY_URL, "https": PROXY_URL}

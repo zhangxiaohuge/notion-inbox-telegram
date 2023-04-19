@@ -1,7 +1,7 @@
 import requests
 import time
 from typing import Dict, Any, List
-from config import TELEGRAM_TOKEN
+from config import TELEGRAM_TOKEN, proxies
 from telegram_api import process_telegram_message
 
 BASE_URL = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}"
@@ -12,7 +12,7 @@ def send_message(chat_id: int, text: str) -> None:
         "chat_id": chat_id,
         "text": text,
     }
-    requests.post(url, data=data)
+    requests.post(url, data=data, proxies=proxies)
 
 def handle_updates(updates: List[Dict[str, Any]]) -> None:
     for update in updates:
@@ -31,7 +31,7 @@ def main() -> None:
         if last_update_id is not None:
             params["offset"] = last_update_id + 1
 
-        response = requests.get(url, params=params)
+        response = requests.get(url, params=params, proxies=proxies)
         updates = response.json().get("result", [])
 
         if updates:
