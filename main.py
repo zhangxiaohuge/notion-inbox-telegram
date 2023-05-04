@@ -38,7 +38,7 @@ def main() -> None:
             handle_updates(updates)
             last_update_id = updates[-1]["update_id"]
 
-        time.sleep(1)
+        time.sleep(10)
 
 if __name__ == "__main__":
     main()
