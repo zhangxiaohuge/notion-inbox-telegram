@@ -2,14 +2,14 @@ import os
 import json
 
 # Telegram configuration
-TELEGRAM_TOKEN = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+TELEGRAM_TOKEN = "6291602403:AAH488h_1YDeBHqp0dPi8--LRcEHONynyYQ"
 
 # Notion configuration
 # create an [integration](https://www.notion.com/my-integrations) and find the token.
-NOTION_AUTH = "secret_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+NOTION_AUTH = "secret_gntKnUGEGe1pA6i7H130sEPGAX525B6H15SBfl9m1ma"
 
 # https://www.notion.so/<username>/<database_id>?v=<view_id>
-NOTION_DATABASE_ID = "xxxxxxxxxxxxxxxxxxxxxxxxx"
+NOTION_DATABASE_ID = "Telegram-a098e429b56f4196ba54f109d2184f11"
 
 # 标签名称
 NOTION_TAG_NAME = "Tags"
